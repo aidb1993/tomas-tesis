@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import { useState, useEffect } from "react";
 function App() {
+  let employees = [];
+  const [nav, seTnav] = useState(true);
+  useEffect(() => {
+    employees = [
+      { name: "juan", id: 1 },
+      { name: "tomas", id: 2 },
+    ];
+    console.log(employees);
+  }, []);
+  const click = () => {
+    seTnav(!nav);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>chau</h1>
+      {nav ? <Navbar /> : null}
+      <button onClick={click}>click</button>
     </div>
   );
 }
